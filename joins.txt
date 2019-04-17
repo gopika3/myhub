@@ -1,0 +1,76 @@
+It is used to get data from the multiple tables.
+At least one common field must be there to create a join.
+
+Types of joins:
+   1.Inner join or equijoins
+   2.Outer joins
+   3.Natural join
+   4.Cross join
+   5.Self join
+   
+   
+   Inner join:
+   
+   select employee_id,first_name,last_name,department.department_id from employee,department where employee.department_id=department.department_id;
+   
+   with alias name:
+   select e.employee_id,e.first_name,e.last_name,d.department_id from employee e,department d where e.department_id=d.department_id;
+   
+   Outer join:
+   
+     Left outer join
+	 Right outer join
+	 Full outer join
+	 
+  Left outer join:
+   
+   It joins all the data from left side table and common data from right side table
+   
+   example:
+   select e.employee_id,e.first_name,e.last_name,d.department_id from department d LEFT OUTER JOIN employee e  on e.department_id=d.department_id;
+   select e.employee_id,e.first_name,e.last_name,d.department_id from employee e,department d where e.department_id=d.department_id(+);
+   
+  Right outer join:
+  
+   It joins all the data from Right side table and common data from left side table
+   
+    example:
+  select e.employee_id,e.first_name,e.last_name,d.department_id from employee e RIGHT OUTER JOIN department d on e.department_id=d.department_id;
+  select e.employee_id,e.first_name,e.last_name,d.department_id from employee e,department d where e.department_id(+)=d.department_id;
+  
+  Full outer join:
+  
+  Combination of left and right joins
+  
+  example:
+  select e.employee_id,e.first_name,e.last_name,d.department_id from department d FULL OUTER JOIN employee e  on e.department_id=d.department_id;
+  
+  Natural join:
+   performs inner join with less code
+   No need to specify the columns
+   
+  Example:
+  select employee_id,first_name,last_name,department_id from employee NATURAL JOIN department;
+  
+  Cross join:
+  
+  Every record in one table joins the every record in another table.
+  
+  Example:
+  select employee_id,first_name from employee CROSS JOIN department;
+  
+  
+  SELF JOIN:
+   join a table itself
+   Used when a record in a table related to another record in the same table
+   
+   EX: employee manager re
+  
+  
+  Join with one or more tables:
+  
+  select e.employee_id,e.first_name,e.last_name,d.department_id,p.product_name
+from employee e,department d,product p WHERE e.department_id=d.department_id 
+AND e.department_id=d.department_id AND e.department_id=p.department_id;
+
+
