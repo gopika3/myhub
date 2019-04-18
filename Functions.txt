@@ -1,0 +1,73 @@
+Functions:
+
+Function is a set of statements which performs specific task
+
+Types of functions:
+
+Single row functions
+Multi Row functions
+
+Single Row functions:
+   Character functions
+   Number functions
+   Date Functions 
+   Conversion Functions
+   General Functions
+   String functions
+ 
+ Character Functions:
+ 
+ select initcap(last_name),salary, initcap(first_name)from employee where first_name='Sean';
+ select upper(last_name),salary, lower(first_name)from employee where first_name='Sean';
+ 
+ String functions:
+ INSTR
+ length
+ 
+ Example:
+ 
+select customer_id,first_name,last_name,email_address,address_state,INSTR(email_address,'@'),LENGTH(address_state) from customer;
+select customer_id,first_name,last_name,email_address,address_state,INSTR(email_address,'@'),LENGTH(address_state) from customer 
+where LENGTH(address_state)>0
+order by LENGTH(address_state);
+
+Nesting functions:
+ 
+ select customer_id,first_name,last_name,email_address,address_state,INSTR(email_address,'@'),
+SUBSTR(email_address, INSTR(email_address,'@'),10)from customer 
+
+Number Functions:
+
+Round:Rounds the valu
+select product_name,round(price) from product;
+Ceil: gives the upper value
+select product_name,ceil(price) from product;
+Floor: gives the lower value
+ select product_name,floor(price) from product;
+ 
+Date functions:
+
+SYSDATE:select employee_id,sysdate from employee;
+ADD_MONTHS:select employee_id,hire_date,first_name,add_months(hire_date,6) review_hire_date from employee;
+MONTHS_BETWEEN:
+select employee_id,hire_date,first_name,months_between(sysdate,Hire_date) review_hire_date from employee;
+select employee_id,hire_date,first_name,round(months_between(sysdate,Hire_date)/12,1) review_hire_date from employee;
+
+Data types/Conversion functions:
+Char
+Varchar2
+Number
+DateTimeStamp
+Clob
+
+Converting:
+to_char
+select employee_id,hire_date,first_name,hire_date,to_char(hire_date,'yyyy-mm-dd') from employee;
+to_date
+
+to_number
+
+
+
+ 
+
